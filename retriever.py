@@ -21,11 +21,16 @@ class RetrievalResult:
 
 class SemanticRetriever:
 
-    def __init__(
-        self,
-        vectorstore_dir: str = "/content/vectorstore",
-        model_name: str = "BAAI/bge-m3",
+   def __init__(
+      self,
+      vectorstore_dir=None,
+      model_name: str = "BAAI/bge-m3",
     ):
+
+    if vectorstore_dir is None:
+        vectorstore_dir = (
+            Path(__file__).resolve().parent
+        )
 
         self.vectorstore_dir = Path(vectorstore_dir)
 
